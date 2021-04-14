@@ -45,6 +45,14 @@ repos:
         description: Your Tool For Style Guide Enforcement
         files: \.py$
 
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: "v0.812"
+    hooks:
+      - id: mypy
+        name: mypy
+        description: Optional Static Typing for Python
+        files: \.py$
+
   - repo: https://github.com/nbQA-dev/nbQA
     rev: "0.6.0"
     hooks:
@@ -57,11 +65,14 @@ repos:
       - id: nbqa-isort
         additional_dependencies: [isort==5.7.0]
         args: [--nbqa-mutate]
+      - id: nbqa-check-ast
+        additional_dependencies: [pre-commit-hooks]
+        args: [--nbqa-mutate]
+      - id: nbqa-mypy
+        additional_dependencies: [mypy]
+        args: [--nbqa-mutate]
 
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: "v0.812"
+  - repo: https://github.com/awslabs/git-secrets
+    rev: "master"
     hooks:
-      - id: mypy
-        name: mypy
-        description: Optional Static Typing for Python
-        files: \.py$
+      - id: git-secrets
