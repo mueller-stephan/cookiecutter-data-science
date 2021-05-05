@@ -1,7 +1,9 @@
 #! /usr/bin/env sh
 git init
-pre-commit autoupdate
-pre-commit install
-pre-commit install --install-hooks 
+{% if cookiecutter.git_repo != '' %}
+git remote add origin {{ cookiecutter.git_repo }}
+{% endif %}
 
-make requirements add_jupyter_kernel
+pre-commit autoupdate
+make setup
+command -v direnv && direnv allow

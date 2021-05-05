@@ -14,12 +14,19 @@ PRCOESSED_DATA = data/processed
 PROJECT_NAME = {{ cookiecutter.repo_name }}
 PYTHON_INTERPRETER = {{ cookiecutter.python_interpreter }}
 
+NOTEBOOKS = notebooks
+REPORTS = reports
+ALL_NOTEBOOKS = $(wildcard $(NOTEBOOKS)/*.ipynb)
+ALL_REPORTS = $(patsubst $(NOTEBOOKS)/%.ipynb,$(REPORTS)/%.html,$(ALL_NOTEBOOKS))
+
 #################################################################################
 # COMMANDS                                                                      #
 #################################################################################
 
+setup: pre-commit install_venv add_jupyter_kernel rebuild
+
 ## Install Python Dependencies
-requirements:
+install_venv:
 	poetry config virtualenvs.in-project true
 	poetry install
 
@@ -30,12 +37,25 @@ add_jupyter_kernel:
 data: requirements
 	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/data/make_dataset.py data/raw data/processed
 
+rebuild:
+	$(VENV)/jupyter lab build
+
 process_data:
+
+pre-commit:
+	pre-commit install
+	pre-commit install --install-hooks 
 
 ## Delete all compiled Python files
 clean:
 	find . -type f -name "*.py[co]" -delete
 	find . -type d -name "__pycache__" -delete
+
+## Render notebooks to html
+$(REPORTS)/%.html: $(NOTEBOOKS)/%.ipynb
+	jupyter nbconvert --to html --no-input --no-prompt --execute --output-dir reports $<
+
+all_reports: $(ALL_REPORTS)
 
 #################################################################################
 # PROJECT RULES                                                                 #

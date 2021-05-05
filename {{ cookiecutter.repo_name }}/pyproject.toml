@@ -6,6 +6,8 @@ authors = ["{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>"]
 
 [tool.poetry.dependencies]
 python = ">=3.8"
+python-dotenv = ""
+click = ""
 
 [tool.poetry.dev-dependencies]
 pytest = ""
@@ -14,8 +16,10 @@ ipykernel = ""
 flake8 = ""
 flake8-docstrings = ""
 mypy = ""
-click = ""
-python-dotenv = ""
+jupyterlab = ""
+jupyterlab-vim = ""
+jupyterlab-spellchecker = ""
+xeus-python = ""
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -28,3 +32,11 @@ multi_line_output = 3
 [tool.black]
 line-length = 100
 atomic = true
+
+[tool.vulture]
+ignore_decorators = ["@app.route", "@require_*"]
+ignore_names = ["visit_*", "do_*"]
+make_whitelist = true
+min_confidence = 80
+paths = ["{{ cookiecutter.repo_name }}"]
+sort_by_size = true

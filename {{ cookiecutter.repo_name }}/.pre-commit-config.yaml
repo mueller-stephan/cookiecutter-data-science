@@ -4,13 +4,37 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: "v3.4.0"
     hooks:
-      - id: trailing-whitespace
-      - id: end-of-file-fixer
-      - id: check-yaml
       - id: check-added-large-files
-      - id: requirements-txt-fixer
       - id: check-ast
+      - id: check-case-conflict
+      - id: check-yaml
       - id: debug-statements
+      - id: end-of-file-fixer
+      - id: requirements-txt-fixer
+      - id: trailing-whitespace
+
+  - repo: https://github.com/hakancelik96/unimport
+    rev: stable
+    hooks:
+      - id: unimport
+        args:
+          [
+            --remove,
+            --requirements,
+            --include-star-import,
+            --ignore-init,
+            --gitignore,
+          ]
+
+  - repo: https://github.com/jendrikseipp/vulture
+    rev: "v2.3" # or any later Vulture version
+    hooks:
+      - id: vulture
+
+  - repo: https://github.com/kplaube/pre-commit-dodgy
+    rev: "0.0.2" # Use `master` for the latest version
+    hooks:
+      - id: dodgy
 
   - repo: https://github.com/roy-ht/pre-commit-jupyter
     rev: "v1.2.1"
@@ -71,8 +95,9 @@ repos:
       - id: nbqa-mypy
         additional_dependencies: [mypy]
         args: [--nbqa-mutate]
-
-  - repo: https://github.com/awslabs/git-secrets
-    rev: "master"
-    hooks:
-      - id: git-secrets
+  # - repo: https://github.com/Yelp/detect-secrets
+  #   rev: v1.0.0
+  #   hooks:
+  #     - id: detect-secrets
+  #       args: ["--baseline", ".secrets.baseline"]
+  #       exclude: package.lock.json

@@ -12,5 +12,9 @@
     "python_interpreter": [
         "python3",
         "python"
-    ]
+    ],
+    "git_repo": "",
+	"_copy_without_render": [
+		"**/docstring.template"
+	]
 }
