@@ -35,7 +35,7 @@ add_jupyter_kernel:
 
 ## Make Dataset
 data: requirements
-	$(PYTHON_INTERPRETER) $(PROJECT_NAME)/data/make_dataset.py data/raw data/processed
+	$(PYTHON_INTERPRETER) src/data/make_dataset.py data/raw data/processed
 
 rebuild:
 	$(VENV)/jupyter lab build

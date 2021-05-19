@@ -3,6 +3,7 @@ name = "{{ cookiecutter.repo_name }}"
 version = "0.1.0"
 description = "{{ cookiecutter.repo_name }}"
 authors = ["{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>"]
+packages = [{ include = "src" }]
 
 [tool.poetry.dependencies]
 python = ">=3.8"
@@ -38,5 +39,5 @@ ignore_decorators = ["@app.route", "@require_*"]
 ignore_names = ["visit_*", "do_*"]
 make_whitelist = true
 min_confidence = 80
-paths = ["{{ cookiecutter.repo_name }}"]
+paths = ["src"]
 sort_by_size = true
