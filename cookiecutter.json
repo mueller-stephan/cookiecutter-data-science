@@ -9,12 +9,13 @@
         "BSD-3-Clause",
         "No license file"
     ],
-    "python_interpreter": [
-        "python3",
-        "python"
-    ],
+    "python_version": "3.8.9",
     "git_repo": "",
-	"_copy_without_render": [
-		"**/docstring.template"
-	]
+    "use_hydra": [
+        "yes",
+        "no"
+    ]
+    "_copy_without_render": [
+        "**/docstring.template"
+    ]
 }

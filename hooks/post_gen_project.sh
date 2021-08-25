@@ -20,7 +20,7 @@ make setup
 command -v direnv && direnv allow
 
 # Init Hydra Config
-{% if cookiecutter.use_hydra == 'n' %}
+{% if cookiecutter.use_hydra == 'no' %}
 rm src/cli.py
 rm docs/code/cli.md
 rm -r src/configurations

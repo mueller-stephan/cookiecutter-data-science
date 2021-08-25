@@ -45,7 +45,9 @@ nav:
   - Technical Handling:
       - Project Setup: logic/project_setup.md
   - Code Documentation:
+{% if cookiecutter.use_hydra == 'no' %}
       - Command-line Interface: code/cli.md
+{% endif %}
       - Features: code/features.md
       - Data: code/data.md
       - Visualization: code/visualization.md
