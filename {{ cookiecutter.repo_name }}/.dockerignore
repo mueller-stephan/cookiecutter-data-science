@@ -1,0 +1,15 @@
+# Exclude everything
+*
+
+# Allow app folder
+!poetry.lock
+!pyproject.toml
+!condition_based_maintenance
+
+# Exclude files again
+.DS_Store
+.AppleDouble
+.LSOverride
+__pycache__/
+*.py[cod]
+*$py.class
