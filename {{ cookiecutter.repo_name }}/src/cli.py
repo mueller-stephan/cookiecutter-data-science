@@ -2,13 +2,11 @@
 import logging
 
 import hydra
-from knockknock import desktop_sender
 from omegaconf import DictConfig
 
 logger = logging.getLogger(__name__)
 
 
-@desktop_sender(title="KCA Deutag: Modeltraining/Evaluation")
 @hydra.main(config_path="configurations", config_name="main.yaml")
 def test_entry_point(config: DictConfig) -> None:
     """This is a test entry point for demonstration purpose only.

@@ -4,7 +4,7 @@
 # Allow app folder
 !poetry.lock
 !pyproject.toml
-!condition_based_maintenance
+!src
 
 # Exclude files again
 .DS_Store

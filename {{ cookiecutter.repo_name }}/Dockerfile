@@ -1,5 +1,5 @@
 ### Base Image
-FROM python:3.9.6-slim-buster as base
+FROM python:{{ cookiecutter.python_version }}-slim-buster as base
 
 # Python settings
 ENV PYTHONFAULTHANDLER=1 \

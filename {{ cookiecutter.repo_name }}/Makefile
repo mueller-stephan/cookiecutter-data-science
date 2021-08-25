@@ -12,7 +12,7 @@ INTERIM_DATA = data/interim
 PRCOESSED_DATA = data/processed
 
 PROJECT_NAME = {{ cookiecutter.repo_name }}
-PYTHON_INTERPRETER = $(VENV)/bin/python
+PYTHON_INTERPRETER = $(VENV)/python
 
 NOTEBOOKS = notebooks
 REPORTS = reports
@@ -59,6 +59,10 @@ run_tests:
 
 documentation:
 	$(PYTHON_INTERPRETER) -m mkdocs serve
+
+# TODO: Update containerization workflow
+container:
+	docker build -t {{ cookiecutter.repo_name }}:latest .
 
 #################################################################################
 # PROJECT RULES                                                                 #
