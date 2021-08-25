@@ -1,19 +1,5 @@
 #! /usr/bin/env bash
 
-if ! command -v xcode-select &>/dev/null; then
-    echo "Install Homebrew..."
-    xcode-select --install
-fi
-
-# Install Homebrew <https://brew.sh/index_de>
-if ! command -v brew &>/dev/null; then
-    echo "Install Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-
-    # Update Homebrew
-    brew update
-fi
-
 # Install Direnv
 if ! command -v direnv &>/dev/null; then
     echo "Install Direnv..."

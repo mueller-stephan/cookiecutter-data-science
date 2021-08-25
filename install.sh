@@ -1,10 +1,9 @@
 #! /usr/bin/env bash
 
-# Install xcode
-if ! command -v xcode-select &>/dev/null; then
-    echo "Install Homebrew..."
-    xcode-select --install
-fi
+###########################################################
+# REQUIREMENTS:
+# * xcode-select
+###########################################################
 
 # Install Homebrew <https://brew.sh/index_de>
 if ! command -v brew &>/dev/null; then
