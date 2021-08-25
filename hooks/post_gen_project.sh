@@ -25,3 +25,8 @@ rm src/cli.py
 rm docs/code/cli.md
 rm -r src/configurations
 {% endif %}
+
+# Init Hydra Config
+{% if cookiecutter.use_dvc == 'yes' %}
+dvc init
+{% endif %}

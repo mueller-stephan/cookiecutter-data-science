@@ -15,6 +15,10 @@
         "yes",
         "no"
     ],
+    "use_dvc": [
+        "no",
+        "yes"
+    ],
     "_copy_without_render": [
         "**/docstring.template"
     ]
