@@ -6,21 +6,18 @@ authors = ["{{ cookiecutter.author_name }} <{{ cookiecutter.author_email }}>"]
 packages = [{ include = "src" }]
 
 [tool.poetry.dependencies]
-python = ">=3.8"
+python = "{{ cookiecutter.python_version }}"
 python-dotenv = ""
 click = ""
 
 [tool.poetry.dev-dependencies]
+isort = ""
 pytest = ""
 black = ""
 ipykernel = ""
 flake8 = ""
 flake8-docstrings = ""
 mypy = ""
-jupyterlab = ""
-jupyterlab-vim = ""
-jupyterlab-spellchecker = ""
-xeus-python = ""
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -39,5 +36,5 @@ ignore_decorators = ["@app.route", "@require_*"]
 ignore_names = ["visit_*", "do_*"]
 make_whitelist = true
 min_confidence = 80
-paths = ["src"]
+paths = ["{{ cookiecutter.repo_name }}"]
 sort_by_size = true
