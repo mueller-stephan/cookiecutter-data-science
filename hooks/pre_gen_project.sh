@@ -1,5 +1,10 @@
 #! /usr/bin/env bash
 
+if ! command -v xcode-select &>/dev/null; then
+    echo "Install Homebrew..."
+    xcode-select --install
+fi
+
 # Install Homebrew <https://brew.sh/index_de>
 if ! command -v brew &>/dev/null; then
     echo "Install Homebrew..."
@@ -43,8 +48,17 @@ if ! command -v poetry &>/dev/null; then
     brew install poetry
 fi
 
+# Install Make
+if ! command -v make &>/dev/null; then
+    echo "Install Make ..."
+    xcode-select --install
+    brew install make
+fi
+
+{% if cookiecutter.use_dvc == 'yes' %}
 # Install DVC
 if ! command -v dvc &>/dev/null; then
     echo "Install Poetry..."
     brew install dvc
 fi
+{% endif %}
