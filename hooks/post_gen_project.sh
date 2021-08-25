@@ -22,5 +22,6 @@ command -v direnv && direnv allow
 # Init Hydra Config
 {% if cookiecutter.use_hydra == 'n' %}
 rm src/cli.py
+rm docs/code/cli.md
 rm -r src/configurations
 {% endif %}

@@ -1,0 +1,52 @@
+site_name: "<< Project Name >>"
+copyright: Made by STATWORX
+use_directory_urls: false
+extra_css:
+  - assets/extra.css
+theme:
+  name: material
+  favicon: assets/favicon.ico
+  # logo: assets/logo.png
+  icon:
+    repo: fontawesome/brands/git-alt
+  features:
+    - search.highlight
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/statworx
+    - icon: fontawesome/brands/medium
+      link: https://medium.com/@statworx_blog
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/statworx
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/statworx
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/statworx
+    - icon: fontawesome/brands/xing
+      link: https://www.xing.com/companies/statworx
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/statworx
+markdown_extensions:
+  - admonition
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          rendering:
+            show_source: true
+            show_root_heading: false
+      watch:
+        - src
+nav:
+  - Home: index.md
+  - Technical Handling:
+      - Project Setup: logic/project_setup.md
+  - Code Documentation:
+      - Command-line Interface: code/cli.md
+      - Features: code/features.md
+      - Data: code/data.md
+      - Visualization: code/visualization.md
+      - Models: code/models.md

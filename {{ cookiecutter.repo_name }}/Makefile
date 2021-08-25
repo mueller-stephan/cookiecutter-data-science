@@ -1,4 +1,4 @@
-.PHONY: clean data lint requirements process_data add_jupyter_kernel
+.PHONY: clean data requirements process_data add_jupyter_kernel run_tests documentation
 
 #################################################################################
 # GLOBALS                                                                       #
@@ -34,7 +34,7 @@ add_jupyter_kernel:
 	$(VENV)/python -m ipykernel install --user --name $(PROJECT_NAME)
 
 ## Make Dataset
-data: requirements
+data:
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py data/raw data/processed
 
 process_data:
@@ -55,7 +55,10 @@ $(REPORTS)/%.html: $(NOTEBOOKS)/%.ipynb
 all_reports: $(ALL_REPORTS)
 
 run_tests:
-	pytest tests
+	$(PYTHON_INTERPRETER) -m pytest tests
+
+documentation:
+	$(PYTHON_INTERPRETER) -m mkdocs serve
 
 #################################################################################
 # PROJECT RULES                                                                 #
