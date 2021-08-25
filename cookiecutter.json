@@ -14,7 +14,7 @@
     "use_hydra": [
         "yes",
         "no"
-    ]
+    ],
     "_copy_without_render": [
         "**/docstring.template"
     ]

@@ -1,13 +1,16 @@
 #! /usr/bin/env bash
 
 # Install Homebrew <https://brew.sh/index_de>
-command -v brew &>/dev/null || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+if ! command -v brew &>/dev/null; then
+    echo "Install Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-# Update Homebrew
-brew update
+    # Update Homebrew
+    brew update
+fi
 
 # Install Direnv
-if ! command -v direnv; then
+if ! command -v direnv &>/dev/null; then
     echo "Install Direnv..."
     brew install direnv
 
@@ -18,7 +21,7 @@ if ! command -v direnv; then
 fi
 
 # Install Pyenv
-if ! command -v pyenv; then
+if ! command -v pyenv &>/dev/null; then
     echo "Install Pyenv..."
     brew install pyenv
 
@@ -29,13 +32,13 @@ if ! command -v pyenv; then
 fi
 
 # Install pre-commit
-if ! command -v pre-commit; then
+if ! command -v pre-commit &>/dev/null; then
     echo "Install Pre-Commit..."
     brew install pre-commit
 fi
 
 # Install Poetry
-if ! command -v poetry; then
+if ! command -v poetry &>/dev/null; then
     echo "Install Poetry..."
     brew install poetry
 fi
