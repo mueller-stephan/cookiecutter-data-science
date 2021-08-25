@@ -33,12 +33,6 @@ install_venv:
 add_jupyter_kernel:
 	$(VENV)/python -m ipykernel install --user --name $(PROJECT_NAME)
 
-## Make Dataset
-data:
-	$(PYTHON_INTERPRETER) src/data/make_dataset.py data/raw data/processed
-
-process_data:
-
 pre-commit:
 	pre-commit install
 	pre-commit install --install-hooks 
