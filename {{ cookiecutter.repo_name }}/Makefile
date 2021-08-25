@@ -12,7 +12,7 @@ INTERIM_DATA = data/interim
 PRCOESSED_DATA = data/processed
 
 PROJECT_NAME = {{ cookiecutter.repo_name }}
-PYTHON_INTERPRETER = {{ cookiecutter.python_interpreter }}
+PYTHON_INTERPRETER = $(VENV)/bin/python
 
 NOTEBOOKS = notebooks
 REPORTS = reports
@@ -23,7 +23,7 @@ ALL_REPORTS = $(patsubst $(NOTEBOOKS)/%.ipynb,$(REPORTS)/%.html,$(ALL_NOTEBOOKS)
 # COMMANDS                                                                      #
 #################################################################################
 
-setup: pre-commit install_venv add_jupyter_kernel rebuild
+setup: pre-commit install_venv add_jupyter_kernel
 
 ## Install Python Dependencies
 install_venv:
@@ -36,9 +36,6 @@ add_jupyter_kernel:
 ## Make Dataset
 data: requirements
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py data/raw data/processed
-
-rebuild:
-	$(VENV)/jupyter lab build
 
 process_data:
 
@@ -56,6 +53,9 @@ $(REPORTS)/%.html: $(NOTEBOOKS)/%.ipynb
 	jupyter nbconvert --to html --no-input --no-prompt --execute --output-dir reports $<
 
 all_reports: $(ALL_REPORTS)
+
+run_tests:
+	pytest tests
 
 #################################################################################
 # PROJECT RULES                                                                 #
