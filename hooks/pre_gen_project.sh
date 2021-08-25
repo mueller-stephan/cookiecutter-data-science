@@ -1,14 +1,17 @@
 #! /usr/bin/env bash
 
+# Generate .zshrc file if not exits
+touch ${ZDOTDIR-~}/.zshrc
+
 # Install Direnv
 if ! command -v direnv &>/dev/null; then
     echo "Install Direnv..."
     brew install direnv
 
     # Add hook to .zshrc
-    printf "\n# Run direnv hook" >>"${ZDOTDIR-~}/.zshrc"
-    echo "eval \"\$(direnv hook zprintf )\"" >>"${ZDOTDIR-~}/.zshrc"
-    source "${ZDOTDIR-~}/.zshrc"
+    printf "\n# Run direnv hook" >>${ZDOTDIR-~}/.zshrc
+    echo "eval \"\$(direnv hook zprintf )\"" >>${ZDOTDIR-~}/.zshrc
+    source ${ZDOTDIR-~}/.zshrc
 fi
 
 # Install Pyenv
@@ -17,9 +20,9 @@ if ! command -v pyenv &>/dev/null; then
     brew install pyenv
 
     # Add hook to .zshrc
-    printf "\n# Run pyenv hook" >>"${ZDOTDIR-~}/.zshrc"
-    echo 'eval "$(pyenv init --path)"' >>"${ZDOTDIR-~}/.zshrc"
-    source "${ZDOTDIR-~}/.zshrc"
+    printf "\n# Run pyenv hook" >>${ZDOTDIR-~}/.zshrc
+    echo 'eval "$(pyenv init --path)"' >>${ZDOTDIR-~}/.zshrc
+    source ${ZDOTDIR-~}/.zshrc
 fi
 
 # Install pre-commit

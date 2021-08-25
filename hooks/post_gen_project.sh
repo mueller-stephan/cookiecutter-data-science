@@ -5,8 +5,16 @@ pyenv install -s {{ cookiecutter.python_version }}
 
 # Set local python version
 pyenv local {{ cookiecutter.python_version }}
-export PYENV_VERSION={{ cookiecutter.python_version }}
+
+export PYENV_VERSION="{{ cookiecutter.python_version }}"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+echo "$(pyenv init -)"
+which python | xargs echo
+pyenv local | xargs echo
+echo $PATH | xargs echo
 
 # Initate Git Repo
 git init
