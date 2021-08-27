@@ -1,4 +1,4 @@
-.PHONY: clean data requirements process_data add_jupyter_kernel run_tests documentation
+.PHONY: clean data requirements process_data add_jupyter_kernel run_tests documentation install_dependencies
 
 #################################################################################
 # GLOBALS                                                                       #
@@ -57,6 +57,10 @@ documentation:
 # TODO: Update containerization workflow
 container:
 	docker build -t {{ cookiecutter.repo_name }}:latest .
+
+install_dependencies:
+	# run install script
+	bash ./install_dependencies.sh
 
 #################################################################################
 # PROJECT RULES                                                                 #

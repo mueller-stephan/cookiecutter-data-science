@@ -1,7 +1,7 @@
 #! /usr/bin/env sh
 
-# Install python version if not exists
-pyenv install -s {{ cookiecutter.python_version }}
+# Install dependencies
+make install_dependencies
 
 # Set local python version
 pyenv local {{ cookiecutter.python_version }}
@@ -20,7 +20,12 @@ git remote add origin {{ cookiecutter.git_repo }}
 # Update Precommit
 pre-commit autoupdate
 make setup
-command -v direnv && direnv allow
+
+{% if cookiecutter.use_docker == 'no' %}
+rm Dockerfile
+rm .dockerignore
+rm docker-compose.yml
+{% endif %}
 
 # Init Hydra Config
 {% if cookiecutter.use_hydra == 'no' %}
@@ -29,7 +34,13 @@ rm docs/code/cli.md
 rm -r src/configurations
 {% endif %}
 
-# Init Hydra Config
+# Init dvc Config
 {% if cookiecutter.use_dvc == 'yes' %}
 dvc init
+{% endif %}
+
+{% if cookiecutter.use_direnv == 'yes' %}
+command -v direnv && direnv allow
+{% else %}
+rm .envrc
 {% endif %}

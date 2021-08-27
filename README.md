@@ -5,6 +5,7 @@ _A logical, reasonably standardized, but flexible project structure for doing an
 ### Requirements to use the cookiecutter template:
 -----------
 
+- Zsh
 - Homebrew
 - xcode-select
 - Cookiecutter
