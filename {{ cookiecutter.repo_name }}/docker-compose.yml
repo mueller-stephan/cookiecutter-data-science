@@ -2,7 +2,7 @@ version: '3'
 
 services:
   {{ cookiecutter.project_slug }}:
-    image: 'at/{{ cookiecutter.project_slug }}:latest'
+    image: 'statworx/{{ cookiecutter.project_slug }}:latest'
     build:
       context: .
     tty: true

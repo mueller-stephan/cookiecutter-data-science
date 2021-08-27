@@ -18,12 +18,10 @@ ipykernel = ""
 flake8 = ""
 flake8-docstrings = ""
 mypy = ""
-mkdocs-material = ""
 mkdocs = ""
-mkdocstrings = ""
-{% if cookiecutter.use_hydra == 'yes' %}
-hydra-core = ""
-{% endif %}
+mkdocs-material = ""
+mkdocstrings = ""{% if cookiecutter.use_hydra == 'yes' %}
+hydra-core = ""{% endif %}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
