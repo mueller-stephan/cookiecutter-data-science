@@ -1,14 +1,11 @@
 {
-    "project_name": "project_name",
-    "repo_name": "{{ cookiecutter.project_name.lower().replace(' ', '_') .replace('-', '_')}}",
-    "author_name": "Your name (or your organization/company/team)",
+    "client_name": "STATWORX",
+    "project_name": "My Project",
+    "project_slug": "{{ cookiecutter.project_name | slugify }}",
+    "repo_name": "{{ cookiecutter.project_slug | slugify | replace('-', '_') }}",
+    "author_name": "Sebastian Heinz",
     "author_email": "{{ cookiecutter.author_name.lower().replace(' ', '.') }}@statworx.com",
     "description": "A short description of the project.",
-    "open_source_license": [
-        "MIT",
-        "BSD-3-Clause",
-        "No license file"
-    ],
     "python_version": "3.8.9",
     "git_repo": "",
     "use_hydra": [
@@ -16,6 +13,14 @@
         "no"
     ],
     "use_dvc": [
+        "yes",
+        "no"
+    ],
+    "use_docker": [
+        "yes",
+        "no"
+    ],
+    "use_direnv": [
         "yes",
         "no"
     ],
