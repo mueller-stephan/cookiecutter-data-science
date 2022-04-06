@@ -1,5 +1,5 @@
 {
-    "client_name": "STATWORX",
+    "client_name": "statworx",
     "project_name": "My Project",
     "project_slug": "{{ cookiecutter.project_name | slugify }}",
     "repo_name": "{{ cookiecutter.project_slug | slugify | replace('-', '_') }}",
