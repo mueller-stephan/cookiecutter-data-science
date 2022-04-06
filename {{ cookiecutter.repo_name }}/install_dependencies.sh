@@ -52,4 +52,9 @@ fi
 {% endif %}
 
 # Install python version if not exists
-pyenv install -s {{ cookiecutter.python_version }}
+# pyenv install -s {{ cookiecutter.python_version }}
+
+# As C compiler on OSX is incompatible with CPython from 12.3 upwards, use gcc-11 installed via brew
+# As soon as problems are fixed again, this should be reverted to standard pyenv install -s ...
+brew install gcc
+CC=/usr/local/bin/gcc-11 pyenv install -s {{ cookiecutter.python_version }}
