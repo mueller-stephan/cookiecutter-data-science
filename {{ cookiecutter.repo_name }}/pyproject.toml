@@ -40,5 +40,5 @@ ignore_decorators = ["@app.route", "@require_*"]
 ignore_names = ["visit_*", "do_*"]
 make_whitelist = true
 min_confidence = 80
-paths = ["{{ cookiecutter.repo_name }}"]
+paths = ["src", "tests"]
 sort_by_size = true
