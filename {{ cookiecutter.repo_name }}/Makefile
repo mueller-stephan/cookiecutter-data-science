@@ -51,8 +51,14 @@ all_reports: $(ALL_REPORTS)
 run_tests:
 	$(PYTHON_INTERPRETER) -m pytest tests
 
-documentation:
-	$(PYTHON_INTERPRETER) -m mkdocs serve
+code_documentation:
+	sphinx-apidoc -o docs/source/code src
+
+build_html_docs:
+	sphinx-build -M html ./docs ./docs/build
+
+build_pdf_docs:
+	sphinx-build -M latexpdf ./docs ./docs/build
 
 # TODO: Update containerization workflow
 container:

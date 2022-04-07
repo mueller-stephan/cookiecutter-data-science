@@ -9,6 +9,7 @@ packages = [{ include = "src" }]
 python = "{{ cookiecutter.python_version }}"
 python-dotenv = ""
 click = ""
+matplotlib = ""
 
 [tool.poetry.dev-dependencies]
 isort = ""
@@ -18,8 +19,12 @@ ipykernel = ""
 flake8 = ""
 flake8-docstrings = ""
 mypy = ""
-mkdocs = ""
-mkdocs-material = ""
+recommonmark = ""
+sphinx = ""
+furo = ""
+sphinx-autodoc-typehints = ""
+sphinx-markdown-builder = ""
+myst-parser = ""
 mkdocstrings = ""{% if cookiecutter.use_hydra == 'yes' %}
 hydra-core = ""{% endif %}
 
