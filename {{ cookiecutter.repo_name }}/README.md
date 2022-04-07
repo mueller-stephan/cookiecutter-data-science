@@ -11,12 +11,10 @@
 
 ## Contact
 
-**STATWORX:**
+**statworx:**
 
 | Name            | Mail                         | Role                         |
 | --------------- | ---------------------------- | ---------------------------- |
-| {{ cookiecutter.author_name}} | {{ cookiecutter.author_email }} | Role |
-| {{ cookiecutter.author_name}} | {{ cookiecutter.author_email }} | Role |
 | {{ cookiecutter.author_name}} | {{ cookiecutter.author_email }} | Role |
 
 ## Overview
