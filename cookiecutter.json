@@ -1,8 +1,9 @@
 {
     "client_name": "statworx",
-    "project_name": "My Project",
+     "help": "The project naming convention is 'Clientname Departmentname Projectname', where Department name is not mandatory. For internal projects use Intern as the Department name. Enter to continue...",
+    "project_name": "Intern Example",
     "project_slug": "{{ cookiecutter.project_name | slugify }}",
-    "repo_name": "{{ cookiecutter.project_slug | slugify | replace('-', '_') }}",
+    "repo_name": "{{ cookiecutter.project_slug | slugify }}",
     "author_name": "Sebastian Heinz",
     "author_email": "{{ cookiecutter.author_name.lower().replace(' ', '.') }}@statworx.com",
     "description": "A short description of the project.",
