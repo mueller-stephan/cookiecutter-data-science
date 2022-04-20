@@ -28,6 +28,7 @@ setup: pre-commit install_venv add_jupyter_kernel
 ## Install Python Dependencies
 install_venv:
 	poetry config virtualenvs.in-project true
+	poetry env use $(shell pyenv which python)
 	poetry install
 
 add_jupyter_kernel:
@@ -35,7 +36,7 @@ add_jupyter_kernel:
 
 pre-commit:
 	pre-commit install
-	pre-commit install --install-hooks 
+	pre-commit install --install-hooks
 
 ## Delete all compiled Python files
 clean:
@@ -71,5 +72,3 @@ install_dependencies:
 #################################################################################
 # PROJECT RULES                                                                 #
 #################################################################################
-
-
